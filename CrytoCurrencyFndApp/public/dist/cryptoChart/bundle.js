@@ -145,21 +145,19 @@ var _stateStorage2 = _interopRequireDefault(_stateStorage);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var defaultState = {
-    funds: 0,
-    withFees: false,
-    tickerList: [],
     portfolioData: [],
-    aciveDistribution: [],
-    radarOptions: {},
-    lineOption: {
-        scales: {
-            xAxis: [{ type: 'liniar', position: 'bottom' }]
-        }
+    form: {
+        ticker: '',
+        funds: 0,
+        withFees: false,
+        tickerList: []
     },
     lineData: {
         labels: ['Scatter'],
         datasets: []
-    }
+    },
+    radarData: {},
+    selectedNode: 80
 };
 
 function lineDataTransform(dataSet) {
@@ -186,11 +184,39 @@ function lineDataTransform(dataSet) {
     return dataset;
 }
 
+function raderDataTransformation(dataSet, node) {
+    var lables = [];
+    var data = [];
+    dataSet[node].coinList.forEach(function (datapoint) {
+        lables.push(datapoint.coinName);
+        data.push(datapoint.investment);
+    });
+
+    var dataset = [{
+        label: 'Distribution',
+        backgroundColor: 'rgba(179,181,198,0.2)',
+        borderColor: 'rgba(179,181,198,1)',
+        pointBackgroundColor: 'rgba(179,181,198,1)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgba(179,181,198,1)',
+        data: data
+    }];
+
+    var transformedDataSet = {
+        lables: lables,
+        datasets: dataset
+    };
+
+    return transformedDataSet;
+}
+
 var templateReducer = function templateReducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
     var action = arguments[1];
 
-    var newState = JSON.parse(JSON.stringify(state));
+    var jsonString = JSON.stringify(state);
+    var newState = JSON.parse(jsonString);
     switch (action.type) {
         case 'CRYPTO_CHART_ADD_TICKER':
             {
@@ -205,6 +231,16 @@ var templateReducer = function templateReducer() {
         case 'CRYPTO_CHART_SET_LINE_DATA':
             {
                 newState.lineData.datasets = lineDataTransform(newState.portfolioData);
+                break;
+            }
+        case 'CRYPTO_CHART_SET_RADAR_DATA':
+            {
+                newState.radarData = raderDataTransformation(newState.portfolioData, newState.selectedNode);
+                break;
+            }
+        case 'CRYPTO_CHART_SET_FORM_VALUE':
+            {
+                newState.form[action.payload.field] = action.payload.value;
                 break;
             }
     }
@@ -407,6 +443,30 @@ var _reactRedux = __webpack_require__(15);
 
 var _reactChartjs = __webpack_require__(913);
 
+var _Icon = __webpack_require__(21);
+
+var _Icon2 = _interopRequireDefault(_Icon);
+
+var _IconButton = __webpack_require__(23);
+
+var _IconButton2 = _interopRequireDefault(_IconButton);
+
+var _Grid = __webpack_require__(22);
+
+var _Grid2 = _interopRequireDefault(_Grid);
+
+var _Paper = __webpack_require__(18);
+
+var _Paper2 = _interopRequireDefault(_Paper);
+
+var _TextField = __webpack_require__(26);
+
+var _TextField2 = _interopRequireDefault(_TextField);
+
+var _Switch = __webpack_require__(79);
+
+var _Switch2 = _interopRequireDefault(_Switch);
+
 var _moduleActions = __webpack_require__(694);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -432,15 +492,96 @@ var CryptoCurrencyChart = function (_React$Component) {
     }
 
     _createClass(CryptoCurrencyChart, [{
+        key: 'setFormValue',
+        value: function setFormValue(event) {
+            this.props.dispatch((0, _moduleActions.setFormValue)(event.currentTarget.id, event.currentTarget.value));
+        }
+    }, {
+        key: 'toggleFormValue',
+        value: function toggleFormValue(event) {
+            this.props.dispatch((0, _moduleActions.setFormValue)(event.currentTarget.id, !this.props.state.form[event.currentTarget.id]));
+        }
+    }, {
+        key: 'add',
+        value: function add(event) {
+            this.props.dispatch(clearForm());
+            this.props.dispatch((0, _moduleActions.addTicker)(this.props.state.form.ticker));
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(_reactChartjs.Scatter, {
-                    data: this.props.state.lineData,
-                    options: this.props.state.lineOptions
-                })
+                _react2.default.createElement(
+                    _Grid2.default,
+                    { container: true },
+                    _react2.default.createElement(
+                        _Grid2.default,
+                        { item: true, xs: 3 },
+                        _react2.default.createElement(_TextField2.default, {
+                            id: 'ticker',
+                            name: 'ticker',
+                            value: this.props.state.form.name,
+                            onChange: this.setFormValue.bind(this),
+                            label: 'Ticker',
+                            fullWidth: true
+                        }),
+                        _react2.default.createElement(
+                            _IconButton2.default,
+                            {
+                                id: 'add',
+                                onClick: this.add.bind(this)
+                            },
+                            _react2.default.createElement(
+                                _Icon2.default,
+                                null,
+                                'add'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _Grid2.default,
+                        { item: true, xs: 3 },
+                        _react2.default.createElement(_TextField2.default, {
+                            id: 'funds',
+                            name: 'funds',
+                            value: this.props.state.form.name,
+                            onChange: this.setFormValue.bind(this),
+                            label: 'Funds',
+                            fullWidth: true
+                        })
+                    ),
+                    _react2.default.createElement(
+                        _Grid2.default,
+                        { item: true, xs: 3 },
+                        _react2.default.createElement(_Switch2.default, {
+                            id: 'withFees',
+                            name: 'withFees',
+                            checked: this.props.state.form.withFees,
+                            onClick: this.toggleFormValue.bind(this)
+                        })
+                    )
+                ),
+                _react2.default.createElement(
+                    _Grid2.default,
+                    { container: true },
+                    _react2.default.createElement(
+                        _Grid2.default,
+                        { item: true, xs: 5 },
+                        _react2.default.createElement(_reactChartjs.Scatter, {
+                            data: this.props.state.lineData
+                        })
+                    ),
+                    _react2.default.createElement(_Grid2.default, { item: true, xs: 2 }),
+                    _react2.default.createElement(
+                        _Grid2.default,
+                        { item: true, xs: 5 },
+                        _react2.default.createElement(_reactChartjs.Radar, {
+                            data: this.props.state.radarData
+                        })
+                    )
+                )
             );
         }
     }, {
@@ -478,7 +619,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.getPortfolioData = exports.setPortfolioData = exports.addTicker = undefined;
+exports.setFormValue = exports.getPortfolioData = exports.setPortfolioData = exports.addTicker = undefined;
 
 var _axios = __webpack_require__(33);
 
@@ -486,16 +627,23 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function addTicker(ticker) {
+function setFormValue(field, value) {
     return {
-        type: 'CRYPTO_CHART_ADD_TICKER',
-        payload: ticker
+        type: 'CRYPTO_CHART_SET_FORM_VALUE',
+        payload: { field: field, value: value }
     };
 } /* 
    * To change this license header, choose License Headers in Project Properties.
    * To change this template file, choose Tools | Templates
    * and open the template in the editor.
    */
+
+function addTicker(ticker) {
+    return {
+        type: 'CRYPTO_CHART_ADD_TICKER',
+        payload: ticker
+    };
+}
 
 function setPortfolioData(data) {
     return {
@@ -510,6 +658,12 @@ function setLineData() {
     };
 }
 
+function setRadarData() {
+    return {
+        type: 'CRYPTO_CHART_SET_RADAR_DATA'
+    };
+}
+
 function getPortfolioData(dispatch, funds, withFees, tickerList) {
     //    axios.post('/services/public/python/cryptoData/portfolio/'+funds+'/'+withFees,{coinList:tickerList}).then((res)=>{
     //        dispatch(setPortfolioData(res.data));
@@ -520,11 +674,13 @@ function getPortfolioData(dispatch, funds, withFees, tickerList) {
 
     dispatch(setPortfolioData(dataSet));
     dispatch(setLineData());
+    dispatch(setRadarData());
 }
 
 exports.addTicker = addTicker;
 exports.setPortfolioData = setPortfolioData;
 exports.getPortfolioData = getPortfolioData;
+exports.setFormValue = setFormValue;
 
 
 var dataSet = [{ "risk": 2.99901437103,
