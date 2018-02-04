@@ -3,31 +3,37 @@ var config = require('../../../../modules/config');
 var express = require('express');
 var mongodb = require('mongodb');
 var router = express.Router();
+var PythonShell = require('python-shell');
 
-var spawn = require("child_process").spawn;
 
 function portfolioOptimization(req, res, next) {
-	// var currencyList = req.body.currencyList;
-	var py = spawn('python',["compute_input.py"]);
-	var data = [1,2,3];
-	dataString = "";
+    var param1 = req.params.funds;
+    var param2 = req.params.withFees;
+    var coinList = req.body.coinList;
+	var options = {
+	  mode: 'text',
+	  pythonPath: '/usr/bin/python',
+	  pythonOptions: ['-u'],
+	  scriptPath: '/Users/hmulchandani/Documents/CryptoCurrencyAnalysisApp/CrytoCurrencyFndApp/routes/services/public/python',
+	  args: [param1, param2, coinList]
+	};
 
-	py.stdout.on('data', function(data){
-  		dataString += data.toString();
-  		res.json(data);
+	var pyshell = new PythonShell('compute_input.py',options);
+
+
+	PythonShell.run('bullet.py', options, function (err, data) {
+	  if (err) throw err;
+	  res.send(data);
 	});
-	py.stdout.on('end', function(){
-	  console.log('Sum of numbers=',dataString);
-	});
-	py.stdin.write(JSON.stringify(data));
-	py.stdin.end();
+
+
 }
 
 
 
 
 // router.post('/portfolioOptimization',portfolioOptimization);
-router.get('/portfolioOptimization',portfolioOptimization);
+router.post('/portfolio/:funds/:withFees',portfolioOptimization);
 
 module.exports = router;
 
