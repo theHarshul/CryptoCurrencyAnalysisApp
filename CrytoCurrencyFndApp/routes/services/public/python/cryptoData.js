@@ -12,18 +12,19 @@ function portfolioOptimization(req, res, next) {
     var coinList = req.body.coinList;
 	var options = {
 	  mode: 'text',
-	  pythonPath: '/usr/bin/python',
+	  pythonPath: '/usr/local/bin/python',
 	  pythonOptions: ['-u'],
 	  scriptPath: '/Users/hmulchandani/Documents/CryptoCurrencyAnalysisApp/CrytoCurrencyFndApp/routes/services/public/python',
-	  args: [param1, param2, coinList]
+	  args: [param1, param2]
 	};
 
-	var pyshell = new PythonShell('compute_input.py',options);
+	//var pyshell = new PythonShell('compute_input.py',options);
 
 
 	PythonShell.run('bullet.py', options, function (err, data) {
 	  if (err) throw err;
 	  res.send(data);
+	  // res.send(JSON.parse(data[0]));
 	});
 
 
