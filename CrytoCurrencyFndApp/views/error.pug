@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Error
+  
+  h2 #{error.type}-#{error.number}: #{message}
+  p You will be redirected to the following link 
+    a( href=error.linkURL ) #{error.linkDisplay}
+  
+  meta( http-equiv="Refresh" content="5;url=" + error.linkURL )

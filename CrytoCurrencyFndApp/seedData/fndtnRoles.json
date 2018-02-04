@@ -1,0 +1,2 @@
+db.fndtnRoles.insert({ "_id" : ObjectId("59eecdc713ab8e279c17902d" ), "name" : "administrator" });
+db.fndtnRoles.insert({ "_id" : ObjectId("5a5700d7e75296175cf6b693" ), "name" : "user" });
