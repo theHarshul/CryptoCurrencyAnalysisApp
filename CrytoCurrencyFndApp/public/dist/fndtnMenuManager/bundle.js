@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 581:
+/***/ 736:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12,17 +12,17 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(17);
+var _reactDom = __webpack_require__(20);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _store = __webpack_require__(582);
+var _store = __webpack_require__(737);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _Layout = __webpack_require__(584);
+var _Layout = __webpack_require__(739);
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -79,7 +79,7 @@ var App = function (_React$Component) {
 
 /***/ }),
 
-/***/ 582:
+/***/ 737:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -89,23 +89,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(36);
+var _redux = __webpack_require__(35);
 
-var _reduxLogger = __webpack_require__(45);
+var _reduxLogger = __webpack_require__(41);
 
-var _reduxThunk = __webpack_require__(46);
+var _reduxThunk = __webpack_require__(42);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reduxPromiseMiddleware = __webpack_require__(47);
+var _reduxPromiseMiddleware = __webpack_require__(43);
 
 var _reduxPromiseMiddleware2 = _interopRequireDefault(_reduxPromiseMiddleware);
 
-var _coreReducers = __webpack_require__(50);
+var _coreReducers = __webpack_require__(55);
 
 var _coreReducers2 = _interopRequireDefault(_coreReducers);
 
-var _moduleReducer = __webpack_require__(583);
+var _moduleReducer = __webpack_require__(738);
 
 var _moduleReducer2 = _interopRequireDefault(_moduleReducer);
 
@@ -128,7 +128,7 @@ exports.default = (0, _redux.createStore)(reducers, middleware);
 
 /***/ }),
 
-/***/ 583:
+/***/ 738:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -138,7 +138,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stateStorage = __webpack_require__(48);
+var _stateStorage = __webpack_require__(44);
 
 var _stateStorage2 = _interopRequireDefault(_stateStorage);
 
@@ -224,7 +224,7 @@ exports.default = moduleReducer;
 
 /***/ }),
 
-/***/ 584:
+/***/ 739:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -242,23 +242,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(24);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _Paper = __webpack_require__(16);
+var _Paper = __webpack_require__(18);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _AppHeader = __webpack_require__(54);
+var _AppHeader = __webpack_require__(57);
 
 var _AppHeader2 = _interopRequireDefault(_AppHeader);
 
-var _AppBody = __webpack_require__(585);
+var _AppBody = __webpack_require__(740);
 
 var _AppBody2 = _interopRequireDefault(_AppBody);
 
-var _AppFooter = __webpack_require__(57);
+var _AppFooter = __webpack_require__(58);
 
 var _AppFooter2 = _interopRequireDefault(_AppFooter);
 
@@ -332,7 +332,7 @@ exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapSt
 
 /***/ }),
 
-/***/ 585:
+/***/ 740:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -350,9 +350,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(24);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _MenuManagerForm = __webpack_require__(586);
+var _MenuManagerForm = __webpack_require__(741);
 
 var _MenuManagerForm2 = _interopRequireDefault(_MenuManagerForm);
 
@@ -400,7 +400,7 @@ exports.default = AppBody;
 
 /***/ }),
 
-/***/ 586:
+/***/ 741:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -416,43 +416,43 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _Grid = __webpack_require__(19);
+var _Grid = __webpack_require__(22);
 
 var _Grid2 = _interopRequireDefault(_Grid);
 
-var _Icon = __webpack_require__(18);
+var _Icon = __webpack_require__(21);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
-var _IconButton = __webpack_require__(20);
+var _IconButton = __webpack_require__(23);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _Paper = __webpack_require__(16);
+var _Paper = __webpack_require__(18);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _Switch = __webpack_require__(71);
+var _Switch = __webpack_require__(79);
 
 var _Switch2 = _interopRequireDefault(_Switch);
 
-var _Table = __webpack_require__(34);
+var _Table = __webpack_require__(38);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _TextField = __webpack_require__(22);
+var _TextField = __webpack_require__(26);
 
 var _TextField2 = _interopRequireDefault(_TextField);
 
-var _Typography = __webpack_require__(21);
+var _Typography = __webpack_require__(25);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
-var _moduleActions = __webpack_require__(587);
+var _moduleActions = __webpack_require__(742);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -748,7 +748,7 @@ exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapSt
 
 /***/ }),
 
-/***/ 587:
+/***/ 742:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -763,7 +763,7 @@ var _axios = __webpack_require__(33);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _footerActions = __webpack_require__(63);
+var _footerActions = __webpack_require__(71);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -864,4 +864,4 @@ exports.clearForm = clearForm;
 
 /***/ })
 
-},[581]);
+},[736]);

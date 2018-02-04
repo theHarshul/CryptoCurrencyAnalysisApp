@@ -134,12 +134,12 @@ class AccessControlManager extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-        state: state.moduleState
-    });
+    state: state.moduleState
+});
 
 const mapDispatchToProps = (dispatch) => ({
-        dispatch: dispatch
-    });
+    dispatch: dispatch
+});
 
 export default connect(
     mapStateToProps,

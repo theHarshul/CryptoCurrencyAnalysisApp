@@ -107,6 +107,12 @@ var env = {
             message:'Verification Code: '
         }
     },
+    python:{
+        mode: 'text',
+        pythonPath: '',
+        pythonOptions:['-u'],
+        scriptPath: ''
+    },
     app:{},
     
     setAttribute:function setAttribute(key, value){

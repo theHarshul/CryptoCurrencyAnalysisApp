@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 111:
+/***/ 122:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -150,7 +150,7 @@ exports.default = Style;
 
 /***/ }),
 
-/***/ 160:
+/***/ 172:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -165,15 +165,15 @@ var _axios = __webpack_require__(33);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _cookies = __webpack_require__(511);
+var _cookies = __webpack_require__(659);
 
 var _cookies2 = _interopRequireDefault(_cookies);
 
-var _footerActions = __webpack_require__(63);
+var _footerActions = __webpack_require__(71);
 
-var _userActions = __webpack_require__(512);
+var _userActions = __webpack_require__(660);
 
-var _navigationActions = __webpack_require__(83);
+var _navigationActions = __webpack_require__(94);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -268,7 +268,7 @@ exports.cancelLogin = cancelLogin;
 
 /***/ }),
 
-/***/ 253:
+/***/ 276:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -314,7 +314,7 @@ exports.closeMenuDrawer = closeMenuDrawer;
 
 /***/ }),
 
-/***/ 277:
+/***/ 428:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -326,17 +326,17 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(17);
+var _reactDom = __webpack_require__(20);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _store = __webpack_require__(317);
+var _store = __webpack_require__(467);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _Layout = __webpack_require__(414);
+var _Layout = __webpack_require__(564);
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -393,7 +393,40 @@ var App = function (_React$Component) {
 
 /***/ }),
 
-/***/ 317:
+/***/ 44:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+var stateStorage = {};
+
+stateStorage.get = function (stateName) {
+    return JSON.parse(localStorage.getItem(stateName)) || undefined;
+};
+
+stateStorage.set = function (stateName, state) {
+    localStorage.setItem(stateName, JSON.stringify(state));
+};
+
+stateStorage.remove = function (stateName) {
+    localStorage.removeItem(stateName);
+};
+
+exports.default = stateStorage;
+
+/***/ }),
+
+/***/ 467:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -403,19 +436,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(36);
+var _redux = __webpack_require__(35);
 
-var _reduxLogger = __webpack_require__(45);
+var _reduxLogger = __webpack_require__(41);
 
-var _reduxThunk = __webpack_require__(46);
+var _reduxThunk = __webpack_require__(42);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reduxPromiseMiddleware = __webpack_require__(47);
+var _reduxPromiseMiddleware = __webpack_require__(43);
 
 var _reduxPromiseMiddleware2 = _interopRequireDefault(_reduxPromiseMiddleware);
 
-var _coreReducers = __webpack_require__(50);
+var _coreReducers = __webpack_require__(55);
 
 var _coreReducers2 = _interopRequireDefault(_coreReducers);
 
@@ -435,7 +468,7 @@ exports.default = (0, _redux.createStore)(reducers, middleware);
 
 /***/ }),
 
-/***/ 319:
+/***/ 469:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -445,7 +478,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stateStorage = __webpack_require__(48);
+var _stateStorage = __webpack_require__(44);
 
 var _stateStorage2 = _interopRequireDefault(_stateStorage);
 
@@ -497,7 +530,7 @@ exports.default = authenticationReducer;
 
 /***/ }),
 
-/***/ 320:
+/***/ 470:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -537,7 +570,7 @@ exports.default = feedbackReducer;
 
 /***/ }),
 
-/***/ 321:
+/***/ 471:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -547,7 +580,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stateStorage = __webpack_require__(48);
+var _stateStorage = __webpack_require__(44);
 
 var _stateStorage2 = _interopRequireDefault(_stateStorage);
 
@@ -600,7 +633,7 @@ exports.default = menuReducer;
 
 /***/ }),
 
-/***/ 322:
+/***/ 472:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -610,7 +643,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _createHashHistory = __webpack_require__(179);
+var _createHashHistory = __webpack_require__(200);
 
 var _createHashHistory2 = _interopRequireDefault(_createHashHistory);
 
@@ -649,7 +682,7 @@ exports.default = historyReducer;
 
 /***/ }),
 
-/***/ 323:
+/***/ 473:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -659,7 +692,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stateStorage = __webpack_require__(48);
+var _stateStorage = __webpack_require__(44);
 
 var _stateStorage2 = _interopRequireDefault(_stateStorage);
 
@@ -698,7 +731,57 @@ exports.default = userReducer;
 
 /***/ }),
 
-/***/ 414:
+/***/ 55:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _authenticationReducer = __webpack_require__(469);
+
+var _authenticationReducer2 = _interopRequireDefault(_authenticationReducer);
+
+var _feedbackReducer = __webpack_require__(470);
+
+var _feedbackReducer2 = _interopRequireDefault(_feedbackReducer);
+
+var _menuReducer = __webpack_require__(471);
+
+var _menuReducer2 = _interopRequireDefault(_menuReducer);
+
+var _navigationReducer = __webpack_require__(472);
+
+var _navigationReducer2 = _interopRequireDefault(_navigationReducer);
+
+var _userReducer = __webpack_require__(473);
+
+var _userReducer2 = _interopRequireDefault(_userReducer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function coreReducers() {
+    var reducerList = {
+        authenticationState: _authenticationReducer2.default,
+        footerState: _feedbackReducer2.default,
+        menuState: _menuReducer2.default,
+        navigationState: _navigationReducer2.default,
+        userState: _userReducer2.default
+    };
+    return reducerList;
+} /* 
+   * To change this license header, choose License Headers in Project Properties.
+   * To change this template file, choose Tools | Templates
+   * and open the template in the editor.
+   */
+exports.default = coreReducers;
+
+/***/ }),
+
+/***/ 564:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -716,31 +799,31 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(24);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _Grid = __webpack_require__(19);
+var _Grid = __webpack_require__(22);
 
 var _Grid2 = _interopRequireDefault(_Grid);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _Paper = __webpack_require__(16);
+var _Paper = __webpack_require__(18);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _AppHeader = __webpack_require__(54);
+var _AppHeader = __webpack_require__(57);
 
 var _AppHeader2 = _interopRequireDefault(_AppHeader);
 
-var _AppBody = __webpack_require__(517);
+var _AppBody = __webpack_require__(665);
 
 var _AppBody2 = _interopRequireDefault(_AppBody);
 
-var _AppFooter = __webpack_require__(57);
+var _AppFooter = __webpack_require__(58);
 
 var _AppFooter2 = _interopRequireDefault(_AppFooter);
 
-var _authenticationActions = __webpack_require__(160);
+var _authenticationActions = __webpack_require__(172);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -816,40 +899,7 @@ exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapSt
 
 /***/ }),
 
-/***/ 48:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-var stateStorage = {};
-
-stateStorage.get = function (stateName) {
-    return JSON.parse(localStorage.getItem(stateName)) || undefined;
-};
-
-stateStorage.set = function (stateName, state) {
-    localStorage.setItem(stateName, JSON.stringify(state));
-};
-
-stateStorage.remove = function (stateName) {
-    localStorage.removeItem(stateName);
-};
-
-exports.default = stateStorage;
-
-/***/ }),
-
-/***/ 492:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -865,25 +915,322 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _Divider = __webpack_require__(106);
+var _AppBar = __webpack_require__(167);
+
+var _AppBar2 = _interopRequireDefault(_AppBar);
+
+var _Button = __webpack_require__(93);
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _Chip = __webpack_require__(261);
+
+var _Chip2 = _interopRequireDefault(_Chip);
+
+var _Divider = __webpack_require__(117);
 
 var _Divider2 = _interopRequireDefault(_Divider);
 
-var _Drawer = __webpack_require__(157);
+var _Drawer = __webpack_require__(169);
 
 var _Drawer2 = _interopRequireDefault(_Drawer);
 
-var _Menu = __webpack_require__(108);
+var _IconButton = __webpack_require__(23);
 
-var _styles = __webpack_require__(15);
+var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _authenticationActions = __webpack_require__(160);
+var _Icon = __webpack_require__(21);
 
-var _navigationActions = __webpack_require__(83);
+var _Icon2 = _interopRequireDefault(_Icon);
 
-var _menuActions = __webpack_require__(253);
+var _Menu = __webpack_require__(119);
+
+var _Toolbar = __webpack_require__(171);
+
+var _Toolbar2 = _interopRequireDefault(_Toolbar);
+
+var _Paper = __webpack_require__(18);
+
+var _Paper2 = _interopRequireDefault(_Paper);
+
+var _Typography = __webpack_require__(25);
+
+var _Typography2 = _interopRequireDefault(_Typography);
+
+var _styles = __webpack_require__(17);
+
+var _AppSideNav = __webpack_require__(640);
+
+var _AppSideNav2 = _interopRequireDefault(_AppSideNav);
+
+var _menuActions = __webpack_require__(276);
+
+var _reactTapEventPlugin = __webpack_require__(277);
+
+var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * To change this license header, choose License Headers in Project Properties.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * To change this template file, choose Tools | Templates
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * and open the template in the editor.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+var styles = function styles(theme) {
+    return {
+        root: {
+            marginTop: theme.spacing.unit * 3,
+            width: '100%'
+        },
+        flex: {
+            flex: 1
+        },
+        menuButton: {
+            marginLeft: -12,
+            marginRight: 20
+        }
+    };
+};
+
+(0, _reactTapEventPlugin2.default)();
+
+var AppHeader = function (_React$Component) {
+    _inherits(AppHeader, _React$Component);
+
+    function AppHeader() {
+        _classCallCheck(this, AppHeader);
+
+        return _possibleConstructorReturn(this, (AppHeader.__proto__ || Object.getPrototypeOf(AppHeader)).call(this));
+    }
+
+    _createClass(AppHeader, [{
+        key: 'openDrawer',
+        value: function openDrawer(event) {
+            this.props.dispatch((0, _menuActions.openMenuDrawer)());
+        }
+    }, {
+        key: 'closeDrawer',
+        value: function closeDrawer(event) {
+            this.props.dispatch((0, _menuActions.closeMenuDrawer)());
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: this.props.classes.root },
+                _react2.default.createElement(
+                    _AppBar2.default,
+                    { position: 'fixed' },
+                    _react2.default.createElement(
+                        _Toolbar2.default,
+                        null,
+                        _react2.default.createElement(
+                            _IconButton2.default,
+                            {
+                                className: this.props.classes.menuButton,
+                                onClick: this.openDrawer.bind(this),
+                                color: 'contrast',
+                                'arial-label': 'Menu'
+                            },
+                            _react2.default.createElement(
+                                _Icon2.default,
+                                null,
+                                'menu'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            _Typography2.default,
+                            {
+                                color: 'inherit',
+                                className: this.props.classes.flex,
+                                type: 'title'
+                            },
+                            'Gass-N-Go'
+                        ),
+                        _react2.default.createElement(
+                            _Button2.default,
+                            {
+                                color: 'contrast'
+                            },
+                            'Login'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    _Drawer2.default,
+                    {
+                        open: this.props.state.drawerOpen,
+                        onRequestClose: this.closeDrawer.bind(this)
+                    },
+                    _react2.default.createElement(_AppSideNav2.default, null)
+                )
+            );
+        }
+    }]);
+
+    return AppHeader;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        state: {
+            token: state.authenticationState.token,
+            drawerOpen: state.menuState.drawerOpen,
+            drawerDocked: state.menuState.drawerDocked
+        }
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        dispatch: dispatch
+    };
+};
+
+exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AppHeader));
+
+/***/ }),
+
+/***/ 58:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(15);
+
+var _Paper = __webpack_require__(18);
+
+var _Paper2 = _interopRequireDefault(_Paper);
+
+var _Typography = __webpack_require__(25);
+
+var _Typography2 = _interopRequireDefault(_Typography);
+
+var _styles = __webpack_require__(17);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * To change this license header, choose License Headers in Project Properties.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * To change this template file, choose Tools | Templates
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * and open the template in the editor.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+var styles = function styles(theme) {
+    return {
+        root: {
+            width: '100%',
+            position: 'fixed',
+            left: 0,
+            bottom: 0
+        }
+    };
+};
+
+var AppFooter = function (_React$Component) {
+    _inherits(AppFooter, _React$Component);
+
+    function AppFooter() {
+        _classCallCheck(this, AppFooter);
+
+        return _possibleConstructorReturn(this, (AppFooter.__proto__ || Object.getPrototypeOf(AppFooter)).call(this));
+    }
+
+    _createClass(AppFooter, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                _Paper2.default,
+                { elevation: 3, className: this.props.classes.root },
+                _react2.default.createElement(
+                    _Typography2.default,
+                    { gutterBottom: true, noWrap: true },
+                    'Messages: ',
+                    this.props.state.message
+                )
+            );
+        }
+    }]);
+
+    return AppFooter;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        state: state.footerState
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        dispatch: dispatch
+    };
+};
+
+exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AppFooter));
+
+/***/ }),
+
+/***/ 640:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(15);
+
+var _Divider = __webpack_require__(117);
+
+var _Divider2 = _interopRequireDefault(_Divider);
+
+var _Drawer = __webpack_require__(169);
+
+var _Drawer2 = _interopRequireDefault(_Drawer);
+
+var _Menu = __webpack_require__(119);
+
+var _styles = __webpack_require__(17);
+
+var _authenticationActions = __webpack_require__(172);
+
+var _navigationActions = __webpack_require__(94);
+
+var _menuActions = __webpack_require__(276);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1047,57 +1394,7 @@ exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapSt
 
 /***/ }),
 
-/***/ 50:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _authenticationReducer = __webpack_require__(319);
-
-var _authenticationReducer2 = _interopRequireDefault(_authenticationReducer);
-
-var _feedbackReducer = __webpack_require__(320);
-
-var _feedbackReducer2 = _interopRequireDefault(_feedbackReducer);
-
-var _menuReducer = __webpack_require__(321);
-
-var _menuReducer2 = _interopRequireDefault(_menuReducer);
-
-var _navigationReducer = __webpack_require__(322);
-
-var _navigationReducer2 = _interopRequireDefault(_navigationReducer);
-
-var _userReducer = __webpack_require__(323);
-
-var _userReducer2 = _interopRequireDefault(_userReducer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function coreReducers() {
-    var reducerList = {
-        authenticationState: _authenticationReducer2.default,
-        footerState: _feedbackReducer2.default,
-        menuState: _menuReducer2.default,
-        navigationState: _navigationReducer2.default,
-        userState: _userReducer2.default
-    };
-    return reducerList;
-} /* 
-   * To change this license header, choose License Headers in Project Properties.
-   * To change this template file, choose Tools | Templates
-   * and open the template in the editor.
-   */
-exports.default = coreReducers;
-
-/***/ }),
-
-/***/ 511:
+/***/ 659:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1135,7 +1432,7 @@ exports.default = Cookie;
 
 /***/ }),
 
-/***/ 512:
+/***/ 660:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1168,7 +1465,7 @@ exports.unsetUser = unsetUser;
 
 /***/ }),
 
-/***/ 517:
+/***/ 665:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1186,13 +1483,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(24);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _Authentication = __webpack_require__(518);
+var _Authentication = __webpack_require__(666);
 
 var _Authentication2 = _interopRequireDefault(_Authentication);
 
-var _Welcome = __webpack_require__(539);
+var _Welcome = __webpack_require__(687);
 
 var _Welcome2 = _interopRequireDefault(_Welcome);
 
@@ -1243,7 +1540,7 @@ exports.default = AppBody;
 
 /***/ }),
 
-/***/ 518:
+/***/ 666:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1259,31 +1556,31 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _TextField = __webpack_require__(22);
+var _TextField = __webpack_require__(26);
 
 var _TextField2 = _interopRequireDefault(_TextField);
 
-var _Button = __webpack_require__(82);
+var _Button = __webpack_require__(93);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _Dialog = __webpack_require__(260);
+var _Dialog = __webpack_require__(283);
 
 var _Dialog2 = _interopRequireDefault(_Dialog);
 
-var _Grid = __webpack_require__(19);
+var _Grid = __webpack_require__(22);
 
 var _Grid2 = _interopRequireDefault(_Grid);
 
-var _Table = __webpack_require__(34);
+var _Table = __webpack_require__(38);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _FormStyle = __webpack_require__(111);
+var _FormStyle = __webpack_require__(122);
 
 var _FormStyle2 = _interopRequireDefault(_FormStyle);
 
-var _authenticationActions = __webpack_require__(160);
+var _authenticationActions = __webpack_require__(172);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1428,7 +1725,7 @@ exports.default = Authentication;
 
 /***/ }),
 
-/***/ 539:
+/***/ 687:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1444,9 +1741,9 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _Paper = __webpack_require__(16);
+var _Paper = __webpack_require__(18);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
@@ -1510,304 +1807,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
-/***/ 54:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(14);
-
-var _AppBar = __webpack_require__(155);
-
-var _AppBar2 = _interopRequireDefault(_AppBar);
-
-var _Button = __webpack_require__(82);
-
-var _Button2 = _interopRequireDefault(_Button);
-
-var _Chip = __webpack_require__(238);
-
-var _Chip2 = _interopRequireDefault(_Chip);
-
-var _Divider = __webpack_require__(106);
-
-var _Divider2 = _interopRequireDefault(_Divider);
-
-var _Drawer = __webpack_require__(157);
-
-var _Drawer2 = _interopRequireDefault(_Drawer);
-
-var _IconButton = __webpack_require__(20);
-
-var _IconButton2 = _interopRequireDefault(_IconButton);
-
-var _Icon = __webpack_require__(18);
-
-var _Icon2 = _interopRequireDefault(_Icon);
-
-var _Menu = __webpack_require__(108);
-
-var _Toolbar = __webpack_require__(159);
-
-var _Toolbar2 = _interopRequireDefault(_Toolbar);
-
-var _Paper = __webpack_require__(16);
-
-var _Paper2 = _interopRequireDefault(_Paper);
-
-var _Typography = __webpack_require__(21);
-
-var _Typography2 = _interopRequireDefault(_Typography);
-
-var _styles = __webpack_require__(15);
-
-var _AppSideNav = __webpack_require__(492);
-
-var _AppSideNav2 = _interopRequireDefault(_AppSideNav);
-
-var _menuActions = __webpack_require__(253);
-
-var _reactTapEventPlugin = __webpack_require__(254);
-
-var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * To change this license header, choose License Headers in Project Properties.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * To change this template file, choose Tools | Templates
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * and open the template in the editor.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-var styles = function styles(theme) {
-    return {
-        root: {
-            marginTop: theme.spacing.unit * 3,
-            width: '100%'
-        },
-        flex: {
-            flex: 1
-        },
-        menuButton: {
-            marginLeft: -12,
-            marginRight: 20
-        }
-    };
-};
-
-(0, _reactTapEventPlugin2.default)();
-
-var AppHeader = function (_React$Component) {
-    _inherits(AppHeader, _React$Component);
-
-    function AppHeader() {
-        _classCallCheck(this, AppHeader);
-
-        return _possibleConstructorReturn(this, (AppHeader.__proto__ || Object.getPrototypeOf(AppHeader)).call(this));
-    }
-
-    _createClass(AppHeader, [{
-        key: 'openDrawer',
-        value: function openDrawer(event) {
-            this.props.dispatch((0, _menuActions.openMenuDrawer)());
-        }
-    }, {
-        key: 'closeDrawer',
-        value: function closeDrawer(event) {
-            this.props.dispatch((0, _menuActions.closeMenuDrawer)());
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: this.props.classes.root },
-                _react2.default.createElement(
-                    _AppBar2.default,
-                    { position: 'fixed' },
-                    _react2.default.createElement(
-                        _Toolbar2.default,
-                        null,
-                        _react2.default.createElement(
-                            _IconButton2.default,
-                            {
-                                className: this.props.classes.menuButton,
-                                onClick: this.openDrawer.bind(this),
-                                color: 'contrast',
-                                'arial-label': 'Menu'
-                            },
-                            _react2.default.createElement(
-                                _Icon2.default,
-                                null,
-                                'menu'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _Typography2.default,
-                            {
-                                color: 'inherit',
-                                className: this.props.classes.flex,
-                                type: 'title'
-                            },
-                            'Gass-N-Go'
-                        ),
-                        _react2.default.createElement(
-                            _Button2.default,
-                            {
-                                color: 'contrast'
-                            },
-                            'Login'
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    _Drawer2.default,
-                    {
-                        open: this.props.state.drawerOpen,
-                        onRequestClose: this.closeDrawer.bind(this)
-                    },
-                    _react2.default.createElement(_AppSideNav2.default, null)
-                )
-            );
-        }
-    }]);
-
-    return AppHeader;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-    return {
-        state: {
-            token: state.authenticationState.token,
-            drawerOpen: state.menuState.drawerOpen,
-            drawerDocked: state.menuState.drawerDocked
-        }
-    };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-        dispatch: dispatch
-    };
-};
-
-exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AppHeader));
-
-/***/ }),
-
-/***/ 57:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(14);
-
-var _Paper = __webpack_require__(16);
-
-var _Paper2 = _interopRequireDefault(_Paper);
-
-var _Typography = __webpack_require__(21);
-
-var _Typography2 = _interopRequireDefault(_Typography);
-
-var _styles = __webpack_require__(15);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * To change this license header, choose License Headers in Project Properties.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * To change this template file, choose Tools | Templates
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * and open the template in the editor.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-var styles = function styles(theme) {
-    return {
-        root: {
-            width: '100%',
-            position: 'fixed',
-            left: 0,
-            bottom: 0
-        }
-    };
-};
-
-var AppFooter = function (_React$Component) {
-    _inherits(AppFooter, _React$Component);
-
-    function AppFooter() {
-        _classCallCheck(this, AppFooter);
-
-        return _possibleConstructorReturn(this, (AppFooter.__proto__ || Object.getPrototypeOf(AppFooter)).call(this));
-    }
-
-    _createClass(AppFooter, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _Paper2.default,
-                { elevation: 3, className: this.props.classes.root },
-                _react2.default.createElement(
-                    _Typography2.default,
-                    { gutterBottom: true, noWrap: true },
-                    'Messages: ',
-                    this.props.state.message
-                )
-            );
-        }
-    }]);
-
-    return AppFooter;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-    return {
-        state: state.footerState
-    };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-        dispatch: dispatch
-    };
-};
-
-exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AppFooter));
-
-/***/ }),
-
-/***/ 63:
+/***/ 71:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1833,7 +1833,7 @@ exports.setFooterMessage = setFooterMessage;
 
 /***/ }),
 
-/***/ 83:
+/***/ 94:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1882,4 +1882,4 @@ exports.navigate = navigate;
 
 /***/ })
 
-},[277]);
+},[428]);

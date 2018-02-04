@@ -14,6 +14,7 @@ var APP_DIR = path.resolve(__dirname, 'public');
 var config = {
     entry: {
         core: APP_DIR + '/js/core/index.jsx',
+        cryptoChart: APP_DIR + '/js/modules/cryptoChart/index.jsx',
         fndtnUserAccount: APP_DIR + '/js/modules/fndtnUserAccount/index.jsx',
         fndtnUserAccountManager: APP_DIR + '/js/modules/fndtnUserAccountManager/index.jsx',
         fndtnResourceManager: APP_DIR + '/js/modules/fndtnResourceManager/index.jsx',
@@ -34,7 +35,9 @@ var config = {
                        'react-router-dom',
                        'redux-logger',
                        'redux-promise-middleware',
-                       'redux-thunk']
+                       'redux-thunk',
+                       'chart.js',
+                       'react-chartjs-2']
     },
     output: {
         path: BUILD_DIR,

@@ -1,6 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 275:
+/***/ 301:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51,7 +51,7 @@ exports.default = Validation;
 
 /***/ }),
 
-/***/ 664:
+/***/ 807:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63,17 +63,17 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(17);
+var _reactDom = __webpack_require__(20);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _store = __webpack_require__(665);
+var _store = __webpack_require__(808);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _Layout = __webpack_require__(667);
+var _Layout = __webpack_require__(810);
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -130,7 +130,7 @@ var App = function (_React$Component) {
 
 /***/ }),
 
-/***/ 665:
+/***/ 808:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -140,23 +140,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(36);
+var _redux = __webpack_require__(35);
 
-var _reduxLogger = __webpack_require__(45);
+var _reduxLogger = __webpack_require__(41);
 
-var _reduxThunk = __webpack_require__(46);
+var _reduxThunk = __webpack_require__(42);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reduxPromiseMiddleware = __webpack_require__(47);
+var _reduxPromiseMiddleware = __webpack_require__(43);
 
 var _reduxPromiseMiddleware2 = _interopRequireDefault(_reduxPromiseMiddleware);
 
-var _coreReducers = __webpack_require__(50);
+var _coreReducers = __webpack_require__(55);
 
 var _coreReducers2 = _interopRequireDefault(_coreReducers);
 
-var _moduleReducer = __webpack_require__(666);
+var _moduleReducer = __webpack_require__(809);
 
 var _moduleReducer2 = _interopRequireDefault(_moduleReducer);
 
@@ -179,7 +179,7 @@ exports.default = (0, _redux.createStore)(reducers, middleware);
 
 /***/ }),
 
-/***/ 666:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -189,7 +189,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stateStorage = __webpack_require__(48);
+var _stateStorage = __webpack_require__(44);
 
 var _stateStorage2 = _interopRequireDefault(_stateStorage);
 
@@ -248,7 +248,7 @@ exports.default = moduleReducer;
 
 /***/ }),
 
-/***/ 667:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -266,23 +266,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(24);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _Paper = __webpack_require__(16);
+var _Paper = __webpack_require__(18);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _AppHeader = __webpack_require__(54);
+var _AppHeader = __webpack_require__(57);
 
 var _AppHeader2 = _interopRequireDefault(_AppHeader);
 
-var _RegistrationForm = __webpack_require__(668);
+var _RegistrationForm = __webpack_require__(811);
 
 var _RegistrationForm2 = _interopRequireDefault(_RegistrationForm);
 
-var _AppFooter = __webpack_require__(57);
+var _AppFooter = __webpack_require__(58);
 
 var _AppFooter2 = _interopRequireDefault(_AppFooter);
 
@@ -356,7 +356,7 @@ exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapSt
 
 /***/ }),
 
-/***/ 668:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -374,37 +374,37 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(24);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _reactGoogleRecaptcha = __webpack_require__(274);
+var _reactGoogleRecaptcha = __webpack_require__(300);
 
 var _reactGoogleRecaptcha2 = _interopRequireDefault(_reactGoogleRecaptcha);
 
-var _Button = __webpack_require__(82);
+var _Button = __webpack_require__(93);
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _Grid = __webpack_require__(19);
+var _Grid = __webpack_require__(22);
 
 var _Grid2 = _interopRequireDefault(_Grid);
 
-var _Paper = __webpack_require__(16);
+var _Paper = __webpack_require__(18);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _TextField = __webpack_require__(22);
+var _TextField = __webpack_require__(26);
 
 var _TextField2 = _interopRequireDefault(_TextField);
 
-var _Typography = __webpack_require__(21);
+var _Typography = __webpack_require__(25);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _moduleActions = __webpack_require__(674);
+var _moduleActions = __webpack_require__(817);
 
-var _Validation = __webpack_require__(275);
+var _Validation = __webpack_require__(301);
 
 var _Validation2 = _interopRequireDefault(_Validation);
 
@@ -722,7 +722,7 @@ exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapSt
 
 /***/ }),
 
-/***/ 674:
+/***/ 817:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -737,11 +737,11 @@ var _axios = __webpack_require__(33);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _Validation = __webpack_require__(275);
+var _Validation = __webpack_require__(301);
 
 var _Validation2 = _interopRequireDefault(_Validation);
 
-var _navigationActions = __webpack_require__(83);
+var _navigationActions = __webpack_require__(94);
 
 var _navigationActions2 = _interopRequireDefault(_navigationActions);
 
@@ -830,4 +830,4 @@ exports.registerUser = registerUser;
 
 /***/ })
 
-},[664]);
+},[807]);

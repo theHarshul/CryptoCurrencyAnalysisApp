@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 166:
+/***/ 184:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15,7 +15,7 @@ var _axios = __webpack_require__(33);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _footerActions = __webpack_require__(63);
+var _footerActions = __webpack_require__(71);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -177,7 +177,7 @@ exports.deleteRoleResource = deleteRoleResource;
 
 /***/ }),
 
-/***/ 588:
+/***/ 743:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -189,17 +189,17 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(17);
+var _reactDom = __webpack_require__(20);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _store = __webpack_require__(589);
+var _store = __webpack_require__(744);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _Layout = __webpack_require__(591);
+var _Layout = __webpack_require__(746);
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -256,7 +256,7 @@ var App = function (_React$Component) {
 
 /***/ }),
 
-/***/ 589:
+/***/ 744:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -266,23 +266,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(36);
+var _redux = __webpack_require__(35);
 
-var _reduxLogger = __webpack_require__(45);
+var _reduxLogger = __webpack_require__(41);
 
-var _reduxThunk = __webpack_require__(46);
+var _reduxThunk = __webpack_require__(42);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _reduxPromiseMiddleware = __webpack_require__(47);
+var _reduxPromiseMiddleware = __webpack_require__(43);
 
 var _reduxPromiseMiddleware2 = _interopRequireDefault(_reduxPromiseMiddleware);
 
-var _coreReducers = __webpack_require__(50);
+var _coreReducers = __webpack_require__(55);
 
 var _coreReducers2 = _interopRequireDefault(_coreReducers);
 
-var _moduleReducer = __webpack_require__(590);
+var _moduleReducer = __webpack_require__(745);
 
 var _moduleReducer2 = _interopRequireDefault(_moduleReducer);
 
@@ -305,7 +305,7 @@ exports.default = (0, _redux.createStore)(reducers, middleware);
 
 /***/ }),
 
-/***/ 590:
+/***/ 745:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -315,7 +315,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _stateStorage = __webpack_require__(48);
+var _stateStorage = __webpack_require__(44);
 
 var _stateStorage2 = _interopRequireDefault(_stateStorage);
 
@@ -409,7 +409,7 @@ exports.default = templateReducer;
 
 /***/ }),
 
-/***/ 591:
+/***/ 746:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -427,23 +427,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(24);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _Paper = __webpack_require__(16);
+var _Paper = __webpack_require__(18);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _AppHeader = __webpack_require__(54);
+var _AppHeader = __webpack_require__(57);
 
 var _AppHeader2 = _interopRequireDefault(_AppHeader);
 
-var _AppBody = __webpack_require__(592);
+var _AppBody = __webpack_require__(747);
 
 var _AppBody2 = _interopRequireDefault(_AppBody);
 
-var _AppFooter = __webpack_require__(57);
+var _AppFooter = __webpack_require__(58);
 
 var _AppFooter2 = _interopRequireDefault(_AppFooter);
 
@@ -517,7 +517,7 @@ exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapSt
 
 /***/ }),
 
-/***/ 592:
+/***/ 747:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -535,7 +535,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(24);
 
-var _AccessControlManager = __webpack_require__(593);
+var _AccessControlManager = __webpack_require__(748);
 
 var _AccessControlManager2 = _interopRequireDefault(_AccessControlManager);
 
@@ -581,7 +581,7 @@ exports.default = AppBody;
 
 /***/ }),
 
-/***/ 593:
+/***/ 748:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -597,49 +597,49 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
-var _AppBar = __webpack_require__(155);
+var _AppBar = __webpack_require__(167);
 
 var _AppBar2 = _interopRequireDefault(_AppBar);
 
-var _Divider = __webpack_require__(106);
+var _Divider = __webpack_require__(117);
 
 var _Divider2 = _interopRequireDefault(_Divider);
 
-var _Grid = __webpack_require__(19);
+var _Grid = __webpack_require__(22);
 
 var _Grid2 = _interopRequireDefault(_Grid);
 
-var _Paper = __webpack_require__(16);
+var _Paper = __webpack_require__(18);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _Tabs = __webpack_require__(269);
+var _Tabs = __webpack_require__(292);
 
 var _Tabs2 = _interopRequireDefault(_Tabs);
 
-var _Table = __webpack_require__(34);
+var _Table = __webpack_require__(38);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _Typography = __webpack_require__(21);
+var _Typography = __webpack_require__(25);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
-var _AccessControlManagerRoles = __webpack_require__(661);
+var _AccessControlManagerRoles = __webpack_require__(804);
 
 var _AccessControlManagerRoles2 = _interopRequireDefault(_AccessControlManagerRoles);
 
-var _AccessControlManagerResources = __webpack_require__(662);
+var _AccessControlManagerResources = __webpack_require__(805);
 
 var _AccessControlManagerResources2 = _interopRequireDefault(_AccessControlManagerResources);
 
-var _AccessControlManagerMenus = __webpack_require__(663);
+var _AccessControlManagerMenus = __webpack_require__(806);
 
 var _AccessControlManagerMenus2 = _interopRequireDefault(_AccessControlManagerMenus);
 
-var _moduleActions = __webpack_require__(166);
+var _moduleActions = __webpack_require__(184);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -843,7 +843,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
-/***/ 661:
+/***/ 804:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -859,7 +859,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(14);
+var _reactRedux = __webpack_require__(15);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -950,7 +950,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
-/***/ 662:
+/***/ 805:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -966,41 +966,41 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Grid = __webpack_require__(19);
+var _Grid = __webpack_require__(22);
 
 var _Grid2 = _interopRequireDefault(_Grid);
 
-var _IconButton = __webpack_require__(20);
+var _IconButton = __webpack_require__(23);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _Icon = __webpack_require__(18);
+var _Icon = __webpack_require__(21);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
-var _List = __webpack_require__(109);
+var _List = __webpack_require__(120);
 
 var _List2 = _interopRequireDefault(_List);
 
-var _Switch = __webpack_require__(71);
+var _Switch = __webpack_require__(79);
 
 var _Switch2 = _interopRequireDefault(_Switch);
 
-var _Typography = __webpack_require__(21);
+var _Typography = __webpack_require__(25);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
-var _TextField = __webpack_require__(22);
+var _TextField = __webpack_require__(26);
 
 var _TextField2 = _interopRequireDefault(_TextField);
 
-var _Table = __webpack_require__(34);
+var _Table = __webpack_require__(38);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _moduleActions = __webpack_require__(166);
+var _moduleActions = __webpack_require__(184);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1199,7 +1199,7 @@ exports.default = (0, _styles.withStyles)(styles)(AccessControlManagerResources)
 
 /***/ }),
 
-/***/ 663:
+/***/ 806:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1215,41 +1215,41 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Grid = __webpack_require__(19);
+var _Grid = __webpack_require__(22);
 
 var _Grid2 = _interopRequireDefault(_Grid);
 
-var _IconButton = __webpack_require__(20);
+var _IconButton = __webpack_require__(23);
 
 var _IconButton2 = _interopRequireDefault(_IconButton);
 
-var _Icon = __webpack_require__(18);
+var _Icon = __webpack_require__(21);
 
 var _Icon2 = _interopRequireDefault(_Icon);
 
-var _List = __webpack_require__(109);
+var _List = __webpack_require__(120);
 
 var _List2 = _interopRequireDefault(_List);
 
-var _Switch = __webpack_require__(71);
+var _Switch = __webpack_require__(79);
 
 var _Switch2 = _interopRequireDefault(_Switch);
 
-var _Typography = __webpack_require__(21);
+var _Typography = __webpack_require__(25);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
-var _TextField = __webpack_require__(22);
+var _TextField = __webpack_require__(26);
 
 var _TextField2 = _interopRequireDefault(_TextField);
 
-var _Table = __webpack_require__(34);
+var _Table = __webpack_require__(38);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _styles = __webpack_require__(15);
+var _styles = __webpack_require__(17);
 
-var _moduleActions = __webpack_require__(166);
+var _moduleActions = __webpack_require__(184);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1434,4 +1434,4 @@ exports.default = (0, _styles.withStyles)(styles)(AccessControlManagerMenus);
 
 /***/ })
 
-},[588]);
+},[743]);
