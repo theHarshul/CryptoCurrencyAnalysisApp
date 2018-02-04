@@ -18,7 +18,7 @@ def main():
     arg1 = sys.argv[1] #value1
     arg2 = sys.argv[2] #value2
     arg3 = sys.argv[3] #value3
-    print arg1 + arg2 + arg3
+    print "Hello from python " + arg1 + arg2 + arg3
 
 #start process
 if __name__ == '__main__':
