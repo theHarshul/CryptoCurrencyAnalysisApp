@@ -1,21 +1,19 @@
 import stateStorage from '../../../util/stateStorage';
 
 const defaultState = {
-    funds:0,
-    withFees:false,
-    tickerList:[],
     portfolioData:[],
-    aciveDistribution:[],
-    radarOptions:{},
-    lineOption:{
-        scales:{
-            xAxis:[{type: 'liniar', position:'bottom'}]
-        }
+    form:{
+        ticker:'',
+        funds:0,
+        withFees:false,
+        tickerList:[]
     },
     lineData:{
         labels:['Scatter'],
         datasets:[]
-    }
+    },
+    radarData:{},
+    selectedNode:80
 };
 
 function lineDataTransform(dataSet){
@@ -42,8 +40,36 @@ function lineDataTransform(dataSet){
     return(dataset);
 }
 
+function raderDataTransformation(dataSet, node){
+    var lables = [];
+    var data = [];
+    dataSet[node].coinList.forEach(function(datapoint){
+        lables.push(datapoint.coinName);
+        data.push(datapoint.investment);
+    });
+    
+    var dataset = [    {
+      label: 'Distribution',
+      backgroundColor: 'rgba(179,181,198,0.2)',
+      borderColor: 'rgba(179,181,198,1)',
+      pointBackgroundColor: 'rgba(179,181,198,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(179,181,198,1)',
+      data: data
+    }];
+
+    var transformedDataSet = {
+        lables: lables,
+        datasets: dataset
+    }
+    
+    return(transformedDataSet);
+}
+
 var templateReducer = (state = defaultState, action) => {
-    var newState = JSON.parse(JSON.stringify(state));
+    var jsonString = JSON.stringify(state)
+    var newState = JSON.parse(jsonString);
     switch(action.type){
         case 'CRYPTO_CHART_ADD_TICKER': {
             newState.tickerList.push(action.payload);
@@ -55,6 +81,14 @@ var templateReducer = (state = defaultState, action) => {
         }
         case 'CRYPTO_CHART_SET_LINE_DATA':{
             newState.lineData.datasets = lineDataTransform(newState.portfolioData);
+            break;
+        }
+        case 'CRYPTO_CHART_SET_RADAR_DATA':{
+            newState.radarData = raderDataTransformation(newState.portfolioData, newState.selectedNode);
+            break;
+        }
+        case 'CRYPTO_CHART_SET_FORM_VALUE':{
+            newState.form[action.payload.field] = action.payload.value;
             break;
         }
     }

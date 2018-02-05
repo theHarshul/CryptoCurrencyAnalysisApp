@@ -6,6 +6,13 @@
 
 import axios from 'axios';
 
+function setFormValue(field, value){
+    return({
+        type: 'CRYPTO_CHART_SET_FORM_VALUE',
+        payload: {field:field, value: value}
+    });
+}
+
 function addTicker(ticker){
     return({
         type:'CRYPTO_CHART_ADD_TICKER',
@@ -26,6 +33,12 @@ function setLineData(){
     });
 }
 
+function setRadarData(){
+    return({
+       type:'CRYPTO_CHART_SET_RADAR_DATA'
+    });
+}
+
 function getPortfolioData(dispatch, funds, withFees, tickerList){
 //    axios.post('/services/public/python/cryptoData/portfolio/'+funds+'/'+withFees,{coinList:tickerList}).then((res)=>{
 //        dispatch(setPortfolioData(res.data));
@@ -36,12 +49,14 @@ function getPortfolioData(dispatch, funds, withFees, tickerList){
 
     dispatch(setPortfolioData(dataSet));
     dispatch(setLineData());
+    dispatch(setRadarData());
 }
 
 export {
     addTicker,
     setPortfolioData,
-    getPortfolioData
+    getPortfolioData,
+    setFormValue
 }
 
     
