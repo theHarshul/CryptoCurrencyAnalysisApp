@@ -1,10 +1,11 @@
 import csv
 import os
+import sys
 import datetime
 import numpy as np
 import cvxpy
 
-dat_dir='data_hist/'
+dat_dir='/Users/hmulchandani/Documents/CryptoCurrencyAnalysisApp/CrytoCurrencyFndApp/routes/services/public/python/data_hist/'
 
 bad_list=['btg','zec','etc','bch','pivx']
 
@@ -18,9 +19,7 @@ We do not make any guarantee or promises that the contents provided are correct.
 
 def file_names_gen():
     xs=[]
-    for x in os.walk(dat_dir):
-        y=x
-    for name in y[2]:
+    for name in os.listdir(dat_dir):
         if '.csv' in name:
             xs.append(name)
     return xs
@@ -159,7 +158,7 @@ def get_portfolios(inds,money,tc):
     for i in xrange(len(rs)):
         dump+=format_point(risks[i],rs[i],gammas[i],new_ports[i])
     dump+=']'
-    return dump
+    print dump
     
 
 
@@ -174,27 +173,36 @@ def format_point(x,y,gamma,w_dict):
     return '{'+xs+ys+gs+cs+'},'
 
 def main():
-    arg1 = sys.argv[1] #value1
-    arg2 = sys.argv[2] #value2
-    arg3 = sys.argv[3] #value3
-    get_portfolios(arg1, arg2, arg3)
-
-
-
-test=True
-if test:
     name_list=name_list_gen(file_names_gen())
 
     best_list=set(name_list)
     best_list-=set(bad_list)
     best_list=list(best_list)
+    arg1 = best_list #value1
+    arg2 = int(sys.argv[1]) #value2
+    arg3 = sys.argv[2].lower() == 'true'
+    get_portfolios(arg1, arg2, arg3)
 
-    dict_f,dict_b=coin_map_gen(name_list)
 
-    principle=1000
 
-    a,b,w,gs,bl=process(best_list,principle)
-    ac,bc,wc,gsc,blc=process(best_list,principle,True)
+# test=True
+# if test:
+#     name_list=name_list_gen(file_names_gen())
+
+#     best_list=set(name_list)
+#     best_list-=set(bad_list)
+#     best_list=list(best_list)
+
+#     dict_f,dict_b=coin_map_gen(name_list)
+
+#     principle=1000
+
+#     a,b,w,gs,bl=process(best_list,principle)
+#     ac,bc,wc,gsc,blc=process(best_list,principle,True)
+
+#start process
+if __name__ == '__main__':
+    main()
 
 
 
