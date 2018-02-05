@@ -1,25 +1,25 @@
 import stateStorage from '../../../util/stateStorage';
 
 const defaultState = {
-    portfolioData:[],
-    form:{
-        ticker:'',
-        funds:0,
-        withFees:false,
-        tickerList:[]
+    "portfolioData": [],
+    "form":{
+        "ticker":'',
+        "funds":0,
+        "withFees":false,
+        "tickerList":[],
+        "selectedNode":80
     },
-    lineData:{
-        labels:['Scatter'],
-        datasets:[]
-    },
-    radarData:{},
-    selectedNode:80
+    "lineRawData":{},
+    "lineData":{},
+    "radarRawData":{},
+    "radarData":{}
 };
 
 function lineDataTransform(dataSet){
     var transformedDataSet = [];
     dataSet.forEach(function(dataPoint){
-        transformedDataSet.push({x:dataPoint.risk, y:dataPoint.rateOfReturn});
+        var point = {x:dataPoint.risk, y:dataPoint.rateOfReturn};
+        transformedDataSet.push(point);
     });
     
     var dataset = [{
@@ -36,16 +36,18 @@ function lineDataTransform(dataSet){
         pointRadius: 2,
         pointHitRadius: 10,
         data: transformedDataSet
-    }]
+    }];
     return(dataset);
 }
 
 function raderDataTransformation(dataSet, node){
-    var lables = [];
+    var labels = [];
     var data = [];
     dataSet[node].coinList.forEach(function(datapoint){
-        lables.push(datapoint.coinName);
-        data.push(datapoint.investment);
+        if(datapoint.investment > 0){
+            labels.push(datapoint.coinName);
+            data.push(datapoint.investment);
+        }
     });
     
     var dataset = [    {
@@ -60,16 +62,28 @@ function raderDataTransformation(dataSet, node){
     }];
 
     var transformedDataSet = {
-        lables: lables,
+        labels: labels,
         datasets: dataset
-    }
+    };
     
     return(transformedDataSet);
 }
 
 var templateReducer = (state = defaultState, action) => {
-    var jsonString = JSON.stringify(state)
-    var newState = JSON.parse(jsonString);
+    var portfolioData = JSON.stringify(state.portfolioData);
+    var lineRawData = JSON.stringify(state.lineRawData);
+    var radarRawData = JSON.stringify(state.radarRawData);
+    var form = JSON.stringify(state.form);
+
+//    var jsonString = JSON.stringify(state);
+    var newState = {};
+    newState.portfolioData = JSON.parse(portfolioData);
+    newState.lineData = JSON.parse(lineRawData);
+    newState.lineRawData = JSON.parse(lineRawData);
+    newState.radarData = JSON.parse(radarRawData);
+    newState.radarRawData = JSON.parse(radarRawData);
+    newState.form = JSON.parse(form);
+    
     switch(action.type){
         case 'CRYPTO_CHART_ADD_TICKER': {
             newState.tickerList.push(action.payload);
@@ -80,11 +94,13 @@ var templateReducer = (state = defaultState, action) => {
             break;
         }
         case 'CRYPTO_CHART_SET_LINE_DATA':{
-            newState.lineData.datasets = lineDataTransform(newState.portfolioData);
+            newState.lineRawData.datasets = lineDataTransform(newState.portfolioData);
+            newState.lineData = JSON.parse(JSON.stringify(newState.lineRawData));
             break;
         }
         case 'CRYPTO_CHART_SET_RADAR_DATA':{
-            newState.radarData = raderDataTransformation(newState.portfolioData, newState.selectedNode);
+            newState.radarRawData = raderDataTransformation(newState.portfolioData, newState.form.selectedNode);
+            newState.radarData = JSON.parse(JSON.stringify(newState.radarRawData));
             break;
         }
         case 'CRYPTO_CHART_SET_FORM_VALUE':{

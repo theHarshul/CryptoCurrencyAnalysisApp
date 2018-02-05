@@ -14,7 +14,7 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import Switch from 'material-ui/Switch';
 
-import {addTicker, getPortfolioData, setPortfolioData, setFormValue} from '../actions/moduleActions';
+import {addTicker, getPortfolioData, setPortfolioData, setFormValue, setRadarData} from '../actions/moduleActions';
 
 class CryptoCurrencyChart extends React.Component {
     constructor() {
@@ -34,6 +34,12 @@ class CryptoCurrencyChart extends React.Component {
         this.props.dispatch(addTicker(this.props.state.form.ticker));
     }
     
+    updateNodeSelected(event){
+        var newValue = event.currentTarget.id==='add'? this.props.state.form.selectedNode+1 : this.props.state.form.selectedNode-1;
+        this.props.dispatch(setFormValue('selectedNode', newValue));
+        this.props.dispatch(setRadarData());
+    }
+    
     render() {
         return (
             <div>
@@ -45,7 +51,6 @@ class CryptoCurrencyChart extends React.Component {
                             value={this.props.state.form.name}
                             onChange={this.setFormValue.bind(this)}
                             label="Ticker"
-                            fullWidth
                         />
                         <IconButton
                             id="add"
@@ -72,15 +77,34 @@ class CryptoCurrencyChart extends React.Component {
                             onClick={this.toggleFormValue.bind(this)}
                         />
                     </Grid>
+                    <Grid item xs={3}>
+                        <IconButton
+                            id="remove"
+                            onClick={this.updateNodeSelected.bind(this)}
+                        >
+                           <Icon>remove</Icon>
+                        </IconButton>
+                        <TextField 
+                            id="selectedNode"
+                            name="selectedNode"
+                            value={this.props.state.form.selectedNode}
+                            label="Selected Node"
+                        />
+                        <IconButton
+                            id="add"
+                            onClick={this.updateNodeSelected.bind(this)}
+                        >
+                           <Icon>add</Icon>
+                        </IconButton>
+                    </Grid>                    
                 </Grid>
                 <Grid container>
-                    <Grid item xs={5}>
+                    <Grid item xs={6}>
                         <Scatter
                             data={this.props.state.lineData}
                         />
                     </Grid>
-                    <Grid item xs={2}/>
-                    <Grid item xs={5}>
+                    <Grid item xs={6}>
                         <Radar
                             data={this.props.state.radarData}
                         />

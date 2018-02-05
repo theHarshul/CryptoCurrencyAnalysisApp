@@ -1,6 +1,6 @@
 webpackJsonp([8],{
 
-/***/ 688:
+/***/ 689:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16,13 +16,13 @@ var _reactDom = __webpack_require__(20);
 
 var _reactRedux = __webpack_require__(15);
 
-var _store = __webpack_require__(689);
+var _store = __webpack_require__(690);
 
 var _store2 = _interopRequireDefault(_store);
 
 var _styles = __webpack_require__(17);
 
-var _Layout = __webpack_require__(691);
+var _Layout = __webpack_require__(692);
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -79,7 +79,7 @@ var App = function (_React$Component) {
 
 /***/ }),
 
-/***/ 689:
+/***/ 690:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -105,7 +105,7 @@ var _coreReducers = __webpack_require__(55);
 
 var _coreReducers2 = _interopRequireDefault(_coreReducers);
 
-var _moduleReducer = __webpack_require__(690);
+var _moduleReducer = __webpack_require__(691);
 
 var _moduleReducer2 = _interopRequireDefault(_moduleReducer);
 
@@ -128,7 +128,7 @@ exports.default = (0, _redux.createStore)(reducers, middleware);
 
 /***/ }),
 
-/***/ 690:
+/***/ 691:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -145,25 +145,25 @@ var _stateStorage2 = _interopRequireDefault(_stateStorage);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var defaultState = {
-    portfolioData: [],
-    form: {
-        ticker: '',
-        funds: 0,
-        withFees: false,
-        tickerList: []
+    "portfolioData": [],
+    "form": {
+        "ticker": '',
+        "funds": 0,
+        "withFees": false,
+        "tickerList": [],
+        "selectedNode": 80
     },
-    lineData: {
-        labels: ['Scatter'],
-        datasets: []
-    },
-    radarData: {},
-    selectedNode: 80
+    "lineRawData": {},
+    "lineData": {},
+    "radarRawData": {},
+    "radarData": {}
 };
 
 function lineDataTransform(dataSet) {
     var transformedDataSet = [];
     dataSet.forEach(function (dataPoint) {
-        transformedDataSet.push({ x: dataPoint.risk, y: dataPoint.rateOfReturn });
+        var point = { x: dataPoint.risk, y: dataPoint.rateOfReturn };
+        transformedDataSet.push(point);
     });
 
     var dataset = [{
@@ -185,11 +185,13 @@ function lineDataTransform(dataSet) {
 }
 
 function raderDataTransformation(dataSet, node) {
-    var lables = [];
+    var labels = [];
     var data = [];
     dataSet[node].coinList.forEach(function (datapoint) {
-        lables.push(datapoint.coinName);
-        data.push(datapoint.investment);
+        if (datapoint.investment > 0) {
+            labels.push(datapoint.coinName);
+            data.push(datapoint.investment);
+        }
     });
 
     var dataset = [{
@@ -204,7 +206,7 @@ function raderDataTransformation(dataSet, node) {
     }];
 
     var transformedDataSet = {
-        lables: lables,
+        labels: labels,
         datasets: dataset
     };
 
@@ -215,8 +217,20 @@ var templateReducer = function templateReducer() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
     var action = arguments[1];
 
-    var jsonString = JSON.stringify(state);
-    var newState = JSON.parse(jsonString);
+    var portfolioData = JSON.stringify(state.portfolioData);
+    var lineRawData = JSON.stringify(state.lineRawData);
+    var radarRawData = JSON.stringify(state.radarRawData);
+    var form = JSON.stringify(state.form);
+
+    //    var jsonString = JSON.stringify(state);
+    var newState = {};
+    newState.portfolioData = JSON.parse(portfolioData);
+    newState.lineData = JSON.parse(lineRawData);
+    newState.lineRawData = JSON.parse(lineRawData);
+    newState.radarData = JSON.parse(radarRawData);
+    newState.radarRawData = JSON.parse(radarRawData);
+    newState.form = JSON.parse(form);
+
     switch (action.type) {
         case 'CRYPTO_CHART_ADD_TICKER':
             {
@@ -230,12 +244,14 @@ var templateReducer = function templateReducer() {
             }
         case 'CRYPTO_CHART_SET_LINE_DATA':
             {
-                newState.lineData.datasets = lineDataTransform(newState.portfolioData);
+                newState.lineRawData.datasets = lineDataTransform(newState.portfolioData);
+                newState.lineData = JSON.parse(JSON.stringify(newState.lineRawData));
                 break;
             }
         case 'CRYPTO_CHART_SET_RADAR_DATA':
             {
-                newState.radarData = raderDataTransformation(newState.portfolioData, newState.selectedNode);
+                newState.radarRawData = raderDataTransformation(newState.portfolioData, newState.form.selectedNode);
+                newState.radarData = JSON.parse(JSON.stringify(newState.radarRawData));
                 break;
             }
         case 'CRYPTO_CHART_SET_FORM_VALUE':
@@ -251,7 +267,7 @@ exports.default = templateReducer;
 
 /***/ }),
 
-/***/ 691:
+/***/ 692:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -267,7 +283,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(24);
+var _reactRouterDom = __webpack_require__(25);
 
 var _reactRedux = __webpack_require__(15);
 
@@ -281,7 +297,7 @@ var _AppHeader = __webpack_require__(57);
 
 var _AppHeader2 = _interopRequireDefault(_AppHeader);
 
-var _AppBody = __webpack_require__(692);
+var _AppBody = __webpack_require__(693);
 
 var _AppBody2 = _interopRequireDefault(_AppBody);
 
@@ -359,7 +375,7 @@ exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapSt
 
 /***/ }),
 
-/***/ 692:
+/***/ 693:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -375,9 +391,9 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(24);
+var _reactRouterDom = __webpack_require__(25);
 
-var _CryptoCurrencyChart = __webpack_require__(693);
+var _CryptoCurrencyChart = __webpack_require__(694);
 
 var _CryptoCurrencyChart2 = _interopRequireDefault(_CryptoCurrencyChart);
 
@@ -423,7 +439,7 @@ exports.default = AppBody;
 
 /***/ }),
 
-/***/ 693:
+/***/ 694:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -441,7 +457,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(15);
 
-var _reactChartjs = __webpack_require__(913);
+var _reactChartjs = __webpack_require__(290);
 
 var _Icon = __webpack_require__(21);
 
@@ -459,15 +475,15 @@ var _Paper = __webpack_require__(18);
 
 var _Paper2 = _interopRequireDefault(_Paper);
 
-var _TextField = __webpack_require__(26);
+var _TextField = __webpack_require__(24);
 
 var _TextField2 = _interopRequireDefault(_TextField);
 
-var _Switch = __webpack_require__(79);
+var _Switch = __webpack_require__(73);
 
 var _Switch2 = _interopRequireDefault(_Switch);
 
-var _moduleActions = __webpack_require__(694);
+var _moduleActions = __webpack_require__(835);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -508,6 +524,13 @@ var CryptoCurrencyChart = function (_React$Component) {
             this.props.dispatch((0, _moduleActions.addTicker)(this.props.state.form.ticker));
         }
     }, {
+        key: 'updateNodeSelected',
+        value: function updateNodeSelected(event) {
+            var newValue = event.currentTarget.id === 'add' ? this.props.state.form.selectedNode + 1 : this.props.state.form.selectedNode - 1;
+            this.props.dispatch((0, _moduleActions.setFormValue)('selectedNode', newValue));
+            this.props.dispatch((0, _moduleActions.setRadarData)());
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -524,8 +547,7 @@ var CryptoCurrencyChart = function (_React$Component) {
                             name: 'ticker',
                             value: this.props.state.form.name,
                             onChange: this.setFormValue.bind(this),
-                            label: 'Ticker',
-                            fullWidth: true
+                            label: 'Ticker'
                         }),
                         _react2.default.createElement(
                             _IconButton2.default,
@@ -561,6 +583,40 @@ var CryptoCurrencyChart = function (_React$Component) {
                             checked: this.props.state.form.withFees,
                             onClick: this.toggleFormValue.bind(this)
                         })
+                    ),
+                    _react2.default.createElement(
+                        _Grid2.default,
+                        { item: true, xs: 3 },
+                        _react2.default.createElement(
+                            _IconButton2.default,
+                            {
+                                id: 'remove',
+                                onClick: this.updateNodeSelected.bind(this)
+                            },
+                            _react2.default.createElement(
+                                _Icon2.default,
+                                null,
+                                'remove'
+                            )
+                        ),
+                        _react2.default.createElement(_TextField2.default, {
+                            id: 'selectedNode',
+                            name: 'selectedNode',
+                            value: this.props.state.form.selectedNode,
+                            label: 'Selected Node'
+                        }),
+                        _react2.default.createElement(
+                            _IconButton2.default,
+                            {
+                                id: 'add',
+                                onClick: this.updateNodeSelected.bind(this)
+                            },
+                            _react2.default.createElement(
+                                _Icon2.default,
+                                null,
+                                'add'
+                            )
+                        )
                     )
                 ),
                 _react2.default.createElement(
@@ -568,15 +624,14 @@ var CryptoCurrencyChart = function (_React$Component) {
                     { container: true },
                     _react2.default.createElement(
                         _Grid2.default,
-                        { item: true, xs: 5 },
+                        { item: true, xs: 6 },
                         _react2.default.createElement(_reactChartjs.Scatter, {
                             data: this.props.state.lineData
                         })
                     ),
-                    _react2.default.createElement(_Grid2.default, { item: true, xs: 2 }),
                     _react2.default.createElement(
                         _Grid2.default,
-                        { item: true, xs: 5 },
+                        { item: true, xs: 6 },
                         _react2.default.createElement(_reactChartjs.Radar, {
                             data: this.props.state.radarData
                         })
@@ -610,7 +665,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 /***/ }),
 
-/***/ 694:
+/***/ 835:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -619,7 +674,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.setFormValue = exports.getPortfolioData = exports.setPortfolioData = exports.addTicker = undefined;
+exports.setRadarData = exports.setFormValue = exports.getPortfolioData = exports.setPortfolioData = exports.addTicker = undefined;
 
 var _axios = __webpack_require__(33);
 
@@ -681,6 +736,7 @@ exports.addTicker = addTicker;
 exports.setPortfolioData = setPortfolioData;
 exports.getPortfolioData = getPortfolioData;
 exports.setFormValue = setFormValue;
+exports.setRadarData = setRadarData;
 
 
 var dataSet = [{ "risk": 2.99901437103,
@@ -987,4 +1043,4 @@ var dataSet = [{ "risk": 2.99901437103,
 
 /***/ })
 
-},[688]);
+},[689]);

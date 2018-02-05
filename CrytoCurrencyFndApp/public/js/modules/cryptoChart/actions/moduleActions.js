@@ -56,7 +56,8 @@ export {
     addTicker,
     setPortfolioData,
     getPortfolioData,
-    setFormValue
+    setFormValue,
+    setRadarData
 }
 
     

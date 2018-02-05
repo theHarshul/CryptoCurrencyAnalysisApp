@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 736:
+/***/ 874:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16,13 +16,13 @@ var _reactDom = __webpack_require__(20);
 
 var _reactRedux = __webpack_require__(15);
 
-var _store = __webpack_require__(737);
+var _store = __webpack_require__(875);
 
 var _store2 = _interopRequireDefault(_store);
 
 var _styles = __webpack_require__(17);
 
-var _Layout = __webpack_require__(739);
+var _Layout = __webpack_require__(877);
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -79,7 +79,7 @@ var App = function (_React$Component) {
 
 /***/ }),
 
-/***/ 737:
+/***/ 875:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -105,7 +105,7 @@ var _coreReducers = __webpack_require__(55);
 
 var _coreReducers2 = _interopRequireDefault(_coreReducers);
 
-var _moduleReducer = __webpack_require__(738);
+var _moduleReducer = __webpack_require__(876);
 
 var _moduleReducer2 = _interopRequireDefault(_moduleReducer);
 
@@ -128,7 +128,7 @@ exports.default = (0, _redux.createStore)(reducers, middleware);
 
 /***/ }),
 
-/***/ 738:
+/***/ 876:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -224,7 +224,7 @@ exports.default = moduleReducer;
 
 /***/ }),
 
-/***/ 739:
+/***/ 877:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -240,7 +240,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(24);
+var _reactRouterDom = __webpack_require__(25);
 
 var _reactRedux = __webpack_require__(15);
 
@@ -254,7 +254,7 @@ var _AppHeader = __webpack_require__(57);
 
 var _AppHeader2 = _interopRequireDefault(_AppHeader);
 
-var _AppBody = __webpack_require__(740);
+var _AppBody = __webpack_require__(878);
 
 var _AppBody2 = _interopRequireDefault(_AppBody);
 
@@ -332,7 +332,7 @@ exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapSt
 
 /***/ }),
 
-/***/ 740:
+/***/ 878:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -348,11 +348,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(24);
+var _reactRouterDom = __webpack_require__(25);
 
 var _reactRedux = __webpack_require__(15);
 
-var _MenuManagerForm = __webpack_require__(741);
+var _MenuManagerForm = __webpack_require__(879);
 
 var _MenuManagerForm2 = _interopRequireDefault(_MenuManagerForm);
 
@@ -400,7 +400,7 @@ exports.default = AppBody;
 
 /***/ }),
 
-/***/ 741:
+/***/ 879:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -436,7 +436,7 @@ var _Paper2 = _interopRequireDefault(_Paper);
 
 var _styles = __webpack_require__(17);
 
-var _Switch = __webpack_require__(79);
+var _Switch = __webpack_require__(73);
 
 var _Switch2 = _interopRequireDefault(_Switch);
 
@@ -444,15 +444,15 @@ var _Table = __webpack_require__(38);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _TextField = __webpack_require__(26);
+var _TextField = __webpack_require__(24);
 
 var _TextField2 = _interopRequireDefault(_TextField);
 
-var _Typography = __webpack_require__(25);
+var _Typography = __webpack_require__(26);
 
 var _Typography2 = _interopRequireDefault(_Typography);
 
-var _moduleActions = __webpack_require__(742);
+var _moduleActions = __webpack_require__(880);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -748,7 +748,7 @@ exports.default = (0, _styles.withStyles)(styles)((0, _reactRedux.connect)(mapSt
 
 /***/ }),
 
-/***/ 742:
+/***/ 880:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -864,4 +864,4 @@ exports.clearForm = clearForm;
 
 /***/ })
 
-},[736]);
+},[874]);
